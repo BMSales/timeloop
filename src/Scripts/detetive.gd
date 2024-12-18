@@ -1,7 +1,14 @@
 extends CharacterBody2D
+class_name Player
 
 @export_category("Variables")
 @export var _move_speed: float = 64.0
+@export var tamanho_inv: int = 8
+
+var inventario: Array[Item] = []
+
+func _ready() -> void:
+	Global.player = self
 
 func _physics_process(delta: float) -> void:
 	_move()
@@ -15,5 +22,6 @@ func _move() -> void:
 	velocity = _direction.normalized() * _move_speed
 	move_and_slide()
 	
-	print(_direction)
-	
+func kill() -> void:
+	print("Player morreu")
+	pass

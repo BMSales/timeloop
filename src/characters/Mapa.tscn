@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://evafberbqfw0"]
+
+[ext_resource type="PackedScene" uid="uid://dn0jmmcrvx1r0" path="res://characters/detetive.tscn" id="1_8flw5"]
+[ext_resource type="PackedScene" uid="uid://bn70nvecfx4oe" path="res://characters/item.tscn" id="2_lckej"]
+
+[node name="Mapa" type="Node2D"]
+
+[node name="Detetive" parent="." instance=ExtResource("1_8flw5")]
+position = Vector2(191, 202)
+
+[node name="Item" parent="." node_paths=PackedStringArray("cadeados") instance=ExtResource("2_lckej")]
+position = Vector2(511, 80)
+cadeados = [NodePath(".")]
+
+[node name="Item6" parent="." node_paths=PackedStringArray("cadeados") instance=ExtResource("2_lckej")]
+position = Vector2(958, 273)
+cadeados = [NodePath(".")]
+
+[node name="Item4" parent="." instance=ExtResource("2_lckej")]
+position = Vector2(508, 429)
+removivel = true
+
+[node name="Item3" parent="." instance=ExtResource("2_lckej")]
+position = Vector2(507, 257)
+removivel = true
+
+[node name="Item2" parent="." node_paths=PackedStringArray("cadeados") instance=ExtResource("2_lckej")]
+position = Vector2(745, 198)
+cadeados = [NodePath("../Item"), NodePath("../Item3")]
+eh_letal = true
+tipo = 2
+
+[node name="Item5" parent="." node_paths=PackedStringArray("cadeados") instance=ExtResource("2_lckej")]
+position = Vector2(743, 375)
+cadeados = [NodePath("../Item"), NodePath("../Item4")]
+tipo = 2
