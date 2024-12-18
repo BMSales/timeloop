@@ -48,7 +48,7 @@ func interagir() -> void:
 						Global.player.inventario.erase(cadeado)
 			elif missing and eh_letal:
 				Global.player.kill()
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if desenhar_contorno:
 		#Chamar função a qual desenha o contorno do item
 		pass

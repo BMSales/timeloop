@@ -10,10 +10,10 @@ var inventario: Array[Item] = []
 func _ready() -> void:
 	Global.player = self
 
-func _physics_process(delta: float) -> void:
-	_move()
+func _physics_process(_delta: float) -> void:
+	move()
 
-func _move() -> void:
+func move() -> void:
 	var _direction: Vector2 = Vector2(
 		Input.get_axis("move_left", "move_right"),
 		Input.get_axis("move_up", "move_down")

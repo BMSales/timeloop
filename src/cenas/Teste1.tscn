@@ -10,18 +10,19 @@
 position = Vector2(702, 238)
 
 [node name="Detetive" parent="." instance=ExtResource("2_cdc7d")]
-position = Vector2(25, 238)
+position = Vector2(-645, 256)
 scale = Vector2(0.5, 0.5)
+_move_speed = 255.0
 
 [node name="Item" parent="." instance=ExtResource("3_64sqi")]
-position = Vector2(135, 162)
+position = Vector2(-421, 75)
 scale = Vector2(0.5, 0.5)
 item_name = "Chave da porta do closet"
 removivel = true
 
 [node name="Item10" parent="." node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
-position = Vector2(222, 335)
-scale = Vector2(0.426798, 0.655303)
+position = Vector2(-261, 431)
+scale = Vector2(0.426798, 1.47569)
 item_name = "Porta do closet"
 cadeados = [NodePath("../Item")]
 tipo = 2
