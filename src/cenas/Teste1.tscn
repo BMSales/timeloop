@@ -9,6 +9,7 @@
 [node name="TileMapLayer" parent="." instance=ExtResource("1_rak6o")]
 position = Vector2(702, 238)
 use_kinematic_bodies = true
+collision_visibility_mode = 0
 
 [node name="Detetive" parent="." instance=ExtResource("2_cdc7d")]
 position = Vector2(-645, 256)
