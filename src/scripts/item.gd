@@ -61,7 +61,7 @@ func interagir() -> void:
 		Tipo.SEM_TIPO:
 			assert(false, "Invoked item should have type")
 		Tipo.INVENTARIO:
-			if Global.player.inventario.size() < Global.player.tamanho_inv and !colecionado and validarCadeados():
+			if Global.player.inventario.size() < Global.player.tamanho_inv and !colecionado and validarCadeados() and Global.hovered == self:
 				Global.player.inventario.append(self)
 				Colecionar()
 		Tipo.INTERACAO:
@@ -79,3 +79,7 @@ func _process(_delta: float) -> void:
 func _input(event) -> void:
 	if event.is_action_pressed("interact") and interagivel:
 			interagir()
+func _on_mouse_entered() -> void:
+	Global.hovered = self
+func _on_mouse_exited() -> void:
+	Global.hovered = null
