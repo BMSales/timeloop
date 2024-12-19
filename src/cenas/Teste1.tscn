@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://dj7gt5xisyyv2"]
+[gd_scene load_steps=23 format=4 uid="uid://dj7gt5xisyyv2"]
 
 [ext_resource type="PackedScene" uid="uid://oh036yk42t87" path="res://cenas/Casa.tscn" id="1_rak6o"]
 [ext_resource type="Script" path="res://scripts/teste_1.gd" id="1_vnbe7"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://1sir8hq7ggvd" path="res://recursos/objetos/PNG/Colored/livro triangulo verde.png" id="13_0f6gs"]
 [ext_resource type="Texture2D" uid="uid://dbtvn0b356gqe" path="res://recursos/objetos/PNG/Colored/livro triangulo azul.png" id="14_l7ih6"]
 [ext_resource type="Texture2D" uid="uid://n0e6552mle5w" path="res://recursos/objetos/PNG/Colored/genericItem_color_088.png" id="15_030at"]
+[ext_resource type="Texture2D" uid="uid://duevtwxhtcedx" path="res://recursos/objetos/PNG/Colored/genericItem_color_005.png" id="17_eu4nn"]
 [ext_resource type="Texture2D" uid="uid://buumv663mklo6" path="res://recursos/objetos/PNG/Colored/genericItem_color_069.png" id="17_gyvuj"]
 [ext_resource type="Texture2D" uid="uid://72xak73j3d7l" path="res://recursos/objetos/PNG/Colored/imagem_teste_pedro.png" id="21_7567f"]
 
@@ -139,12 +140,23 @@ destroy = true
 tipo = 2
 arte = ExtResource("11_s44ra")
 
+[node name="fita adesiva 2" parent="Quarto" instance=ExtResource("3_64sqi")]
+position = Vector2(640, 928)
+rotation = 0.450471
+scale = Vector2(0.304815, 0.304815)
+arte = ExtResource("15_030at")
+
+[node name="ImagemTestePedro" type="Sprite2D" parent="Quarto"]
+position = Vector2(253, 926)
+scale = Vector2(0.13024, 0.126494)
+texture = ExtResource("21_7567f")
+
 [node name="Banheiro" type="Node2D" parent="."]
 
 [node name="Chave de fenda" parent="Banheiro" instance=ExtResource("3_64sqi")]
 position = Vector2(891, -88)
 scale = Vector2(0.291326, 0.291326)
-arte = ExtResource("5_j47wh")
+arte = ExtResource("17_eu4nn")
 
 [node name="Trigger" parent="Banheiro" node_paths=PackedStringArray("target") instance=ExtResource("8_61q0f")]
 position = Vector2(927, 408)
@@ -157,6 +169,12 @@ position = Vector2(1150, 25)
 rotation = 1.32097
 scale = Vector2(0.633729, 0.633729)
 arte = ExtResource("17_gyvuj")
+
+[node name="chave de fenda 2" parent="Banheiro" instance=ExtResource("3_64sqi")]
+position = Vector2(1164, 544)
+rotation = 0.608865
+scale = Vector2(0.29485, 0.29485)
+arte = ExtResource("5_j47wh")
 
 [node name="Sala" type="Node2D" parent="."]
 
@@ -175,6 +193,11 @@ removivel = true
 disable = true
 arte = ExtResource("10_supnt")
 
+[node name="fita adesiva 2" parent="Sala" instance=ExtResource("3_64sqi")]
+position = Vector2(-940, -194)
+scale = Vector2(0.294873, 0.294873)
+arte = ExtResource("15_030at")
+
 [node name="Cozinha" type="Node2D" parent="."]
 
 [node name="Porta Cozinha" parent="Cozinha" node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
@@ -187,11 +210,18 @@ destroy = true
 tipo = 2
 arte = ExtResource("11_s44ra")
 
-[node name="GenericItemColor088" type="Sprite2D" parent="."]
-position = Vector2(258, -860)
-texture = ExtResource("15_030at")
+[node name="chave de fenda 1" parent="Cozinha" instance=ExtResource("3_64sqi")]
+position = Vector2(651, -971)
+rotation = 2.14276
+scale = Vector2(0.218992, 0.218992)
+arte = ExtResource("5_j47wh")
 
-[node name="ImagemTestePedro" type="Sprite2D" parent="."]
-position = Vector2(253, 926)
-scale = Vector2(0.13024, 0.126494)
-texture = ExtResource("21_7567f")
+[node name="porta final" parent="." node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
+position = Vector2(199, -1573)
+scale = Vector2(2.27376, 2.27376)
+cadeados = [NodePath("../Salinha/fita adesiva 1"), NodePath("../Quarto/fita adesiva 2"), NodePath("../Sala/fita adesiva 2"), NodePath("../Banheiro/chave de fenda 2"), NodePath("../Cozinha/chave de fenda 1")]
+removivel = true
+letal = true
+colidivel = true
+tipo = 2
+arte = ExtResource("11_s44ra")
