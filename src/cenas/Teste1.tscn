@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dj7gt5xisyyv2"]
+[gd_scene load_steps=12 format=3 uid="uid://dj7gt5xisyyv2"]
 
 [ext_resource type="PackedScene" uid="uid://oh036yk42t87" path="res://cenas/Casa.tscn" id="1_rak6o"]
 [ext_resource type="Script" path="res://scripts/teste_1.gd" id="1_vnbe7"]
@@ -8,8 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://bfwnt6ydy887x" path="res://recursos/objetos/PNG/Colored/genericItem_color_065.png" id="7_06lp4"]
 [ext_resource type="PackedScene" uid="uid://de6g7n4vfrb6k" path="res://cenas/trigger.tscn" id="8_61q0f"]
 [ext_resource type="Texture2D" uid="uid://cglu5b46hgcrc" path="res://recursos/objetos/PNG/Colored/genericItem_color_035.png" id="8_fxp5t"]
-[ext_resource type="Texture2D" uid="uid://o6664fj177jn" path="res://recursos/objetos/PNG/Colored/genericItem_color_091.png" id="9_sidxm"]
+[ext_resource type="Texture2D" uid="uid://bxg3k7p8qnkmo" path="res://recursos/empty.png" id="9_21bn3"]
 [ext_resource type="Texture2D" uid="uid://dl4pjpevgqlb5" path="res://recursos/objetos/PNG/Colored/genericItem_color_062.png" id="10_supnt"]
+[ext_resource type="Texture2D" uid="uid://bbb2fbe7gkcry" path="res://recursos/Porta.png" id="11_s44ra"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_vnbe7")
@@ -27,17 +28,6 @@ _move_speed = 255.0
 position = Vector2(891, -88)
 scale = Vector2(0.410966, 0.410966)
 arte = ExtResource("5_j47wh")
-
-[node name="Porta Salinha" parent="." node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
-position = Vector2(-258, 433)
-rotation = -3.2629
-scale = Vector2(1.63802, 1.65098)
-cadeados = [NodePath("../livro 2")]
-letal = true
-colidivel = true
-destroy = true
-tipo = 2
-arte = ExtResource("7_06lp4")
 
 [node name="livro 2" parent="." node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
 position = Vector2(-631, 39)
@@ -65,19 +55,6 @@ removivel = true
 letal = true
 arte = ExtResource("8_fxp5t")
 
-[node name="Porta Quarto" parent="." node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
-position = Vector2(116, 306)
-rotation = -0.243565
-scale = Vector2(1.28826, 1.30842)
-skew = 0.00189328
-nome = "Porta Quarto"
-cadeados = [NodePath("../Chave de fenda")]
-colidivel = true
-disable = true
-destroy = true
-tipo = 2
-arte = ExtResource("7_06lp4")
-
 [node name="Porta Cozinha" parent="." node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
 position = Vector2(135, -593)
 rotation = -0.243565
@@ -97,13 +74,12 @@ scale = Vector2(9.70242, 9.70242)
 target = NodePath("../Porta Quarto")
 
 [node name="TV" parent="." node_paths=PackedStringArray("cadeados", "triggerables") instance=ExtResource("3_64sqi")]
-position = Vector2(-642, -848)
-scale = Vector2(0.73483, 0.73483)
+position = Vector2(-641, -866)
+scale = Vector2(0.457513, 0.457513)
 cadeados = [NodePath("../Chave de fenda")]
 triggerables = [NodePath("../Celular")]
-colidivel = true
 tipo = 2
-arte = ExtResource("9_sidxm")
+arte = ExtResource("9_21bn3")
 
 [node name="Celular" parent="." instance=ExtResource("3_64sqi")]
 position = Vector2(-758, -359)
@@ -111,3 +87,24 @@ scale = Vector2(0.495313, 0.495313)
 removivel = true
 disable = true
 arte = ExtResource("10_supnt")
+
+[node name="Porta Salinha" parent="." node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
+position = Vector2(-255, 416)
+rotation = -3.14159
+scale = Vector2(1.11783, 1.11783)
+cadeados = [NodePath("../livro 2")]
+letal = true
+colidivel = true
+destroy = true
+tipo = 2
+arte = ExtResource("11_s44ra")
+
+[node name="Porta Quarto" parent="." node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
+position = Vector2(123, 285)
+scale = Vector2(1.11783, 1.11783)
+cadeados = [NodePath("../Chave de fenda")]
+colidivel = true
+disable = true
+destroy = true
+tipo = 2
+arte = ExtResource("11_s44ra")

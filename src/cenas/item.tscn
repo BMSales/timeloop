@@ -13,6 +13,7 @@ tipo = 1
 arte = ExtResource("2_5gsgh")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(1.86514, 1.86514)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_12qsq")
