@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dn0jmmcrvx1r0"]
 
 [ext_resource type="Script" path="res://scripts/detetive.gd" id="1_nxriv"]
-[ext_resource type="Texture2D" uid="uid://cqw06iqhq0pge" path="res://icon.svg" id="2_wy8rd"]
+[ext_resource type="Texture2D" uid="uid://dx837igwhvewm" path="res://recursos/objetos/PNG/Colored/hitman1_stand.png" id="2_efv2l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_644al"]
 size = Vector2(118, 120)
@@ -10,7 +10,9 @@ size = Vector2(118, 120)
 script = ExtResource("1_nxriv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_wy8rd")
+position = Vector2(6, -3)
+scale = Vector2(2.80303, 2.80303)
+texture = ExtResource("2_efv2l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
