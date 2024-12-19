@@ -23,59 +23,35 @@ position = Vector2(-645, 256)
 scale = Vector2(0.5, 0.5)
 _move_speed = 255.0
 
-[node name="Chave de fenda" parent="." instance=ExtResource("3_64sqi")]
-position = Vector2(891, -88)
-scale = Vector2(0.410966, 0.410966)
-arte = ExtResource("5_j47wh")
+[node name="Salinha" type="Node2D" parent="."]
 
-[node name="livro 2" parent="." node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
-position = Vector2(-631, 39)
-scale = Vector2(0.530873, 0.530873)
+[node name="livro 2" parent="Salinha" node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
+position = Vector2(-646, 31)
+scale = Vector2(0.352605, 0.352605)
 nome = "livro 2"
 cadeados = [NodePath("../livro 3")]
 removivel = true
 letal = true
 arte = ExtResource("8_fxp5t")
 
-[node name="livro 3" parent="." node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
-position = Vector2(-511, 39)
-scale = Vector2(0.543145, 0.552459)
+[node name="livro 3" parent="Salinha" node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
+position = Vector2(-518, 31)
+scale = Vector2(0.319155, 0.324628)
 nome = "livro 3"
-cadeados = [NodePath("../Livro 1")]
+cadeados = [NodePath("../livro 1")]
 removivel = true
 letal = true
 arte = ExtResource("8_fxp5t")
 
-[node name="Livro 1" parent="." instance=ExtResource("3_64sqi")]
-position = Vector2(-756, 41)
-scale = Vector2(0.516913, 0.516913)
+[node name="livro 1" parent="Salinha" instance=ExtResource("3_64sqi")]
+position = Vector2(-766, 30)
+scale = Vector2(0.334495, 0.334495)
 nome = "Livro 1"
 removivel = true
 letal = true
 arte = ExtResource("8_fxp5t")
 
-[node name="Trigger" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_61q0f")]
-position = Vector2(927, 408)
-rotation = 0.00609007
-scale = Vector2(9.70242, 9.70242)
-target = NodePath("../Porta Quarto")
-
-[node name="TV" parent="." node_paths=PackedStringArray("cadeados", "triggerables") instance=ExtResource("3_64sqi")]
-position = Vector2(-641, -866)
-scale = Vector2(0.457513, 0.457513)
-cadeados = [NodePath("../Chave de fenda")]
-triggerables = [NodePath("../Celular")]
-tipo = 2
-arte = ExtResource("9_21bn3")
-
-[node name="Celular" parent="." instance=ExtResource("3_64sqi")]
-position = Vector2(-758, -359)
-scale = Vector2(0.495313, 0.495313)
-removivel = true
-disable = true
-arte = ExtResource("10_supnt")
-
-[node name="Porta Salinha" parent="." node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
+[node name="Porta Salinha" parent="Salinha" node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
 position = Vector2(-255, 416)
 rotation = -3.14159
 scale = Vector2(1.11783, 1.11783)
@@ -86,21 +62,55 @@ destroy = true
 tipo = 2
 arte = ExtResource("11_s44ra")
 
-[node name="Porta Quarto" parent="." node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
-position = Vector2(123, 285)
+[node name="Quarto" type="Node2D" parent="."]
+
+[node name="Porta Quarto" parent="Quarto" node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
+position = Vector2(133, 288)
 scale = Vector2(1.11783, 1.11783)
-cadeados = [NodePath("../Chave de fenda")]
+cadeados = [NodePath("../../Banheiro/Chave de fenda")]
 colidivel = true
 disable = true
 destroy = true
 tipo = 2
 arte = ExtResource("11_s44ra")
 
-[node name="Porta Quarto2" parent="." node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
+[node name="Banheiro" type="Node2D" parent="."]
+
+[node name="Chave de fenda" parent="Banheiro" instance=ExtResource("3_64sqi")]
+position = Vector2(891, -88)
+scale = Vector2(0.291326, 0.291326)
+arte = ExtResource("5_j47wh")
+
+[node name="Trigger" parent="Banheiro" node_paths=PackedStringArray("target") instance=ExtResource("8_61q0f")]
+position = Vector2(927, 408)
+rotation = 0.00609007
+scale = Vector2(9.70242, 9.70242)
+target = NodePath("../../Quarto/Porta Quarto")
+
+[node name="Sala" type="Node2D" parent="."]
+
+[node name="TV" parent="Sala" node_paths=PackedStringArray("cadeados", "triggerables") instance=ExtResource("3_64sqi")]
+position = Vector2(-641, -866)
+scale = Vector2(0.457513, 0.457513)
+cadeados = [NodePath("../../Banheiro/Chave de fenda")]
+triggerables = [NodePath("../Celular")]
+tipo = 2
+arte = ExtResource("9_21bn3")
+
+[node name="Celular" parent="Sala" instance=ExtResource("3_64sqi")]
+position = Vector2(-758, -359)
+scale = Vector2(0.495313, 0.495313)
+removivel = true
+disable = true
+arte = ExtResource("10_supnt")
+
+[node name="Cozinha" type="Node2D" parent="."]
+
+[node name="Porta Cozinha" parent="Cozinha" node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
 position = Vector2(129, -607)
 rotation = 3.14159
 scale = Vector2(1.11783, 1.11783)
-cadeados = [NodePath("../Celular")]
+cadeados = [NodePath("../../Sala/Celular")]
 colidivel = true
 destroy = true
 tipo = 2
