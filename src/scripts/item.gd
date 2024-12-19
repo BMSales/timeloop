@@ -2,11 +2,10 @@ extends Node2D
 class_name Item
 
 @export_category("Properties")
-@export var item_name: String = "Empty_Name"
+@export var nome: String = ""
 @export var cadeados: Array[Item] = []
-@export var selecionavel: bool = false
 @export var removivel: bool = false
-@export var eh_letal: bool = false
+@export var letal: bool = false
 @export var colidivel: bool = false
 @export var disable: bool = false
 @export_range(0, 500, 1) var distancia_interacao: float = 200.0
@@ -23,64 +22,60 @@ var desenhar_contorno: bool = false
 var colecionado: bool = false
 var distancia_player: float = 0.0
 
-func Activate() -> void:
+func TurnCollisionOff() -> void:
+	static_body_2d.collision_layer = 0
+	static_body_2d.collision_mask = 0
+func TurnCollisionOn() -> void:
+	static_body_2d.collision_layer = 1
+	static_body_2d.collision_mask = 1
+func Colecionar() -> void:
+	colecionado = true
+	Disable()
+func Enable() -> void:
+	TurnCollisionOn()
 	visible = true
-	body_collision_shape.disabled = false
-
+func Disable() -> void:
+	TurnCollisionOff()
+	visible = false
 func _ready() -> void:
 	if arte:
 		sprite.texture = arte
 	if !colidivel:
-		static_body_2d.queue_free()
+		TurnCollisionOff()
 	if disable:
-		body_collision_shape.disabled = true
+		TurnCollisionOff()
 		visible = false
-	
+func validarCadeados() -> bool:
+	if cadeados.size() == 0:
+		return true
+	for cadeado in cadeados:
+		if !(cadeado in Global.player.inventario):
+			return false
+	return true
+func apagarItemsCadeados() -> void:
+	for cadeado in cadeados:
+		if cadeado.removivel:
+			Global.player.inventario.erase(cadeado)
 func interagir() -> void:
 	match tipo:
 		Tipo.SEM_TIPO:
 			assert(false, "Invoked item should have type")
 		Tipo.INVENTARIO:
-			if Global.player.inventario.size() < Global.player.tamanho_inv and !colecionado:
+			if Global.player.inventario.size() < Global.player.tamanho_inv and !colecionado and validarCadeados():
 				Global.player.inventario.append(self)
-				print("Item Removido")
-				visible = false
-				colecionado = true
-				print(Global.player.inventario)
+				Colecionar()
 		Tipo.INTERACAO:
-			var missing: bool = false
-			print(cadeados)
-			for cadeado in cadeados:
-				if !(cadeado in Global.player.inventario):
-					missing = true
-			if !missing:
-				print("Item Aberto")
-				queue_free()
-				for cadeado in cadeados:
-					if cadeado.removivel:
-						Global.player.inventario.erase(cadeado)
-			elif missing and eh_letal:
+			if validarCadeados():
+				Disable()
+				apagarItemsCadeados()
+			elif !validarCadeados() and letal:
 				Global.player.kill()
 func _process(_delta: float) -> void:
-	if desenhar_contorno:
-		#Chamar função a qual desenha o contorno do item
-		pass
-
-
-func _on_mouse_entered() -> void:
-	print("Mouse")
-	if selecionavel:
-		assert(Global.player, "Sem player na cena atual. Item nao deveria ser selecionavel!")
-		distancia_player = position.distance_to(Global.player.position)
-		if distancia_player < distancia_interacao:
-			assert(tipo != Tipo.SEM_TIPO, "Um item interagivel nao deveria ser SEM_TIPO!")
-			print("In Distance")
-			interagivel = true
-		else:
-			print(distancia_player)
-			interagivel = false
-
+	distancia_player = position.distance_to(Global.player.position)
+	if distancia_player < distancia_interacao:
+		interagivel = true
+	else:
+		interagivel = false
 func _input(event) -> void:
 	if event.is_action_pressed("interact") and interagivel:
 			interagir()
-	

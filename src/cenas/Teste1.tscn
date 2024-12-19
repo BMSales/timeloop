@@ -28,15 +28,6 @@ item_name = "Chave da porta do closet"
 removivel = true
 arte = ExtResource("4_bapnk")
 
-[node name="Item2" parent="." node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
-position = Vector2(-210, 426)
-scale = Vector2(1.61524, 1.61524)
-item_name = "Paorta do closet"
-cadeados = [NodePath("../Item")]
-colidivel = true
-tipo = 2
-arte = ExtResource("5_8f62u")
-
 [node name="Item4" parent="." instance=ExtResource("3_64sqi")]
 position = Vector2(1176, 255)
 scale = Vector2(0.410966, 0.410966)
@@ -54,3 +45,22 @@ position = Vector2(127, 300)
 colidivel = true
 disable = true
 arte = ExtResource("6_0qtd0")
+
+[node name="Item2" parent="." node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
+position = Vector2(-258, 429)
+item_name = "PortaCloset"
+cadeados = [NodePath("../Item")]
+colidivel = true
+tipo = 2
+arte = ExtResource("5_8f62u")
+
+[node name="Item5" parent="." instance=ExtResource("3_64sqi")]
+position = Vector2(-884, 56)
+
+[node name="Item6" parent="." node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
+position = Vector2(-747, 59)
+cadeados = [NodePath("../Item5")]
+
+[node name="Item7" parent="." node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
+position = Vector2(-609, 60)
+cadeados = [NodePath("../Item6")]
