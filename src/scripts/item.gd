@@ -17,7 +17,7 @@ enum Tipo { SEM_TIPO, INVENTARIO, INTERACAO }
 @export var arte: Texture2D
 @onready var sprite: Sprite2D = $Sprite
 @onready var static_body_2d: StaticBody2D = $StaticBody2D
-@onready var body_collision_shape: CollisionShape2D = $StwwwwwsaticBody2D/BodyCollisionShape
+@onready var body_collision_shape: CollisionShape2D = $StaticBody2D/BodyCollisionShape
 
 var interagivel: bool = false
 var desenhar_contorno: bool = false
