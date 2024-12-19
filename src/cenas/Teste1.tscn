@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dj7gt5xisyyv2"]
+[gd_scene load_steps=9 format=3 uid="uid://dj7gt5xisyyv2"]
 
 [ext_resource type="PackedScene" uid="uid://oh036yk42t87" path="res://cenas/Casa.tscn" id="1_rak6o"]
 [ext_resource type="PackedScene" uid="uid://dn0jmmcrvx1r0" path="res://cenas/detetive.tscn" id="2_cdc7d"]
 [ext_resource type="PackedScene" uid="uid://bn70nvecfx4oe" path="res://cenas/item.tscn" id="3_64sqi"]
+[ext_resource type="Texture2D" uid="uid://dhdh2viu5jdox" path="res://recursos/objetos/PNG/Colored/genericItem_color_154.png" id="4_bapnk"]
+[ext_resource type="Texture2D" uid="uid://cs1pgyx2dq46l" path="res://recursos/objetos/PNG/Colored/genericItem_color_054.png" id="5_8f62u"]
+[ext_resource type="Texture2D" uid="uid://yvrxixvqj2yi" path="res://recursos/objetos/PNG/Colored/genericItem_color_055.png" id="6_0qtd0"]
+[ext_resource type="Texture2D" uid="uid://dhayjp6drjqa1" path="res://recursos/objetos/PNG/Colored/genericItem_color_112.png" id="7_yrblh"]
+[ext_resource type="PackedScene" uid="uid://de6g7n4vfrb6k" path="res://cenas/trigger.tscn" id="8_r1ub8"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -21,10 +26,31 @@ position = Vector2(-421, 75)
 scale = Vector2(0.5, 0.5)
 item_name = "Chave da porta do closet"
 removivel = true
+arte = ExtResource("4_bapnk")
 
-[node name="Item10" parent="." node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
-position = Vector2(-261, 431)
-scale = Vector2(0.426798, 1.47569)
-item_name = "Porta do closet"
+[node name="Item2" parent="." node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
+position = Vector2(-210, 426)
+scale = Vector2(1.61524, 1.61524)
+item_name = "Paorta do closet"
 cadeados = [NodePath("../Item")]
+colidivel = true
 tipo = 2
+arte = ExtResource("5_8f62u")
+
+[node name="Item4" parent="." instance=ExtResource("3_64sqi")]
+position = Vector2(1176, 255)
+scale = Vector2(0.410966, 0.410966)
+item_name = "Secador de cabelo"
+removivel = true
+arte = ExtResource("7_yrblh")
+
+[node name="Trigger" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_r1ub8")]
+position = Vector2(267, 313)
+scale = Vector2(5.05303, 5.05303)
+target = NodePath("../Item3")
+
+[node name="Item3" parent="." instance=ExtResource("3_64sqi")]
+position = Vector2(127, 300)
+colidivel = true
+disable = true
+arte = ExtResource("6_0qtd0")

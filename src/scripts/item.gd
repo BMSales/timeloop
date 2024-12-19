@@ -7,21 +7,34 @@ class_name Item
 @export var selecionavel: bool = false
 @export var removivel: bool = false
 @export var eh_letal: bool = false
-@export_range(0.1, 0.1, 100.0) var distancia_interacao: float = 200.0
+@export var colidivel: bool = false
+@export var disable: bool = false
+@export_range(0, 500, 1) var distancia_interacao: float = 200.0
 enum Tipo { SEM_TIPO, INVENTARIO, INTERACAO }
 @export var tipo: Tipo = Tipo.SEM_TIPO 
 
 @export var arte: Texture2D
 @onready var sprite: Sprite2D = $Sprite
+@onready var static_body_2d: StaticBody2D = $StaticBody2D
+@onready var body_collision_shape: CollisionShape2D = $StaticBody2D/BodyCollisionShape
 
 var interagivel: bool = false
 var desenhar_contorno: bool = false
 var colecionado: bool = false
 var distancia_player: float = 0.0
 
+func Activate() -> void:
+	visible = true
+	body_collision_shape.disabled = false
+
 func _ready() -> void:
 	if arte:
 		sprite.texture = arte
+	if !colidivel:
+		static_body_2d.queue_free()
+	if disable:
+		body_collision_shape.disabled = true
+		visible = false
 	
 func interagir() -> void:
 	match tipo:

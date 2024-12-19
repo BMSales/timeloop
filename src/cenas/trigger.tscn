@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://de6g7n4vfrb6k"]
+
+[ext_resource type="Script" path="res://cenas/trigger.gd" id="1_j64aa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uj8kk"]
+
+[node name="Trigger" type="Area2D"]
+script = ExtResource("1_j64aa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_uj8kk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
