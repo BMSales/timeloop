@@ -5,6 +5,8 @@ class_name Player
 @export var _move_speed: float = 64.0
 @export var tamanho_inv: int = 8
 
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
 var inventario: Array[Item] = []
 
 func _ready() -> void:
@@ -20,8 +22,11 @@ func move() -> void:
 	)
 	
 	velocity = _direction.normalized() * _move_speed
+	
+	if _direction != Vector2.ZERO:
+		sprite_2d.rotation = _direction.angle()
+	
 	move_and_slide()
 	
 func kill() -> void:
-	print("Player morreu")
-	pass
+	Global.map.restart()
