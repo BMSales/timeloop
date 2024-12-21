@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://dj7gt5xisyyv2"]
+[gd_scene load_steps=23 format=4 uid="uid://dj7gt5xisyyv2"]
 
 [ext_resource type="PackedScene" uid="uid://oh036yk42t87" path="res://cenas/Casa.tscn" id="1_rak6o"]
 [ext_resource type="Script" path="res://scripts/teste_1.gd" id="1_vnbe7"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://n0e6552mle5w" path="res://recursos/objetos/PNG/Colored/genericItem_color_088.png" id="15_030at"]
 [ext_resource type="Texture2D" uid="uid://duevtwxhtcedx" path="res://recursos/objetos/PNG/Colored/genericItem_color_005.png" id="17_eu4nn"]
 [ext_resource type="Texture2D" uid="uid://72xak73j3d7l" path="res://recursos/objetos/PNG/Colored/imagem_teste_pedro.png" id="21_7567f"]
+[ext_resource type="PackedScene" uid="uid://b5ykwpajqqoqc" path="res://cenas/MainMenu.tscn" id="22_l25iv"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_vnbe7")
@@ -163,6 +164,7 @@ arte = ExtResource("17_eu4nn")
 position = Vector2(927, 408)
 rotation = 0.00609007
 scale = Vector2(9.70242, 9.70242)
+trigger_target = true
 target = NodePath("../../Quarto/Porta Quarto")
 dialogo = true
 single_use_dialogue = true
@@ -224,3 +226,8 @@ letal = true
 colidivel = true
 tipo = 2
 arte = ExtResource("11_s44ra")
+
+[node name="Trigger" parent="." instance=ExtResource("8_61q0f")]
+position = Vector2(441, -1562)
+scale = Vector2(14.879, 14.879)
+scene = ExtResource("22_l25iv")

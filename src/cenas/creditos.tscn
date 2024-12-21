@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8q7fh1yxgbs0"]
+
+[ext_resource type="Script" path="res://scripts/creditos.gd" id="1_guwm4"]
+
+[node name="Creditos" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_guwm4")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Créditos:
+Sophia Hoffmann Fernandes Braga
+Bruno Mateus Sales
+Pedro Victor Rocha
+Pedro Lozer
+
+Pressione ESC para voltar ao menu"
+horizontal_alignment = 1
+vertical_alignment = 1
