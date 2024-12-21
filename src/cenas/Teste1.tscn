@@ -132,8 +132,8 @@ arte = ExtResource("15_030at")
 [node name="Quarto" type="Node2D" parent="."]
 
 [node name="Porta Quarto" parent="Quarto" node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
-position = Vector2(133, 288)
-scale = Vector2(1.11783, 1.11783)
+position = Vector2(125, 287)
+scale = Vector2(1.06856, 1.06856)
 cadeados = [NodePath("../../Banheiro/Chave de fenda")]
 colidivel = true
 disable = true
@@ -212,7 +212,7 @@ arte = ExtResource("11_s44ra")
 [node name="chave de fenda 1" parent="Cozinha" instance=ExtResource("3_64sqi")]
 position = Vector2(651, -971)
 rotation = 2.14276
-scale = Vector2(0.218992, 0.218992)
+scale = Vector2(0.323505, 0.323505)
 arte = ExtResource("5_j47wh")
 
 [node name="porta final" parent="." node_paths=PackedStringArray("cadeados") instance=ExtResource("3_64sqi")]
