@@ -29,12 +29,8 @@ func move() -> void:
 	
 		move_and_slide()
 		
-func show_dialogue(new_text) -> void:
-	canvas_layer.show_textbox(new_text)
-	
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.is_action_pressed("interact") :
-		canvas_layer.hide_textbox()
+func show_dialogue(new_text: String, speed: float) -> void:
+	canvas_layer.show_textbox(new_text, speed)
 	
 func kill() -> void:
 	Global.map.restart()

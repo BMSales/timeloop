@@ -2,7 +2,6 @@ extends Area2D
 class_name Item
 
 @export_category("Properties")
-@export var nome: String = ""
 @export var cadeados: Array[Item] = []
 @export var triggerables: Array[Item] = []
 @export var removivel: bool = false
@@ -13,8 +12,13 @@ class_name Item
 @export_range(0, 500, 1) var distancia_interacao: float = 200.0
 enum Tipo { SEM_TIPO, INVENTARIO, INTERACAO }
 @export var tipo: Tipo = Tipo.SEM_TIPO 
-
 @export var arte: Texture2D
+
+@export_category("Dialogo")
+@export var dialogo: bool = false
+@export var texto: String = ""
+@export var timing: float = 0.0
+
 @onready var sprite: Sprite2D = $Sprite
 @onready var static_body_2d: StaticBody2D = $StaticBody2D
 @onready var body_collision_shape: CollisionShape2D = $StaticBody2D/BodyCollisionShape
@@ -103,6 +107,7 @@ func interagir() -> void:
 			elif !validarCadeados() and letal:
 				#print("Player killed during interaction!")
 				Global.player.kill()
+	
 func _process(_delta: float) -> void:
 	distancia_player = position.distance_to(Global.player.position)
 	if distancia_player < distancia_interacao:
@@ -111,7 +116,9 @@ func _process(_delta: float) -> void:
 		interagivel = false
 func _input(event) -> void:
 	if event.is_action_pressed("interact") and interagivel and Global.hovered == self:
-			interagir()
+		if dialogo:
+			Global.player.show_dialogue(texto, timing)
+		interagir()
 func _on_mouse_entered() -> void:
 	Global.hovered = self
 	#print("Hovered item set to:", self.nome)

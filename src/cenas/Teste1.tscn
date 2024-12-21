@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://dj7gt5xisyyv2"]
+[gd_scene load_steps=22 format=4 uid="uid://dj7gt5xisyyv2"]
 
 [ext_resource type="PackedScene" uid="uid://oh036yk42t87" path="res://cenas/Casa.tscn" id="1_rak6o"]
 [ext_resource type="Script" path="res://scripts/teste_1.gd" id="1_vnbe7"]
@@ -20,7 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://dbtvn0b356gqe" path="res://recursos/objetos/PNG/Colored/livro triangulo azul.png" id="14_l7ih6"]
 [ext_resource type="Texture2D" uid="uid://n0e6552mle5w" path="res://recursos/objetos/PNG/Colored/genericItem_color_088.png" id="15_030at"]
 [ext_resource type="Texture2D" uid="uid://duevtwxhtcedx" path="res://recursos/objetos/PNG/Colored/genericItem_color_005.png" id="17_eu4nn"]
-[ext_resource type="Texture2D" uid="uid://buumv663mklo6" path="res://recursos/objetos/PNG/Colored/genericItem_color_069.png" id="17_gyvuj"]
 [ext_resource type="Texture2D" uid="uid://72xak73j3d7l" path="res://recursos/objetos/PNG/Colored/imagem_teste_pedro.png" id="21_7567f"]
 
 [node name="Node2D" type="Node2D"]
@@ -49,12 +48,14 @@ colidivel = true
 destroy = true
 tipo = 2
 arte = ExtResource("11_s44ra")
+dialogo = true
+texto = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+timing = 1.0
 
 [node name="livro verdadeiro 1" parent="Salinha" instance=ExtResource("3_64sqi")]
 position = Vector2(-905, 27)
 rotation = 0.192896
 scale = Vector2(0.19973, 0.19973)
-nome = "livro verdadeiro 1"
 removivel = true
 arte = ExtResource("6_lnygr")
 
@@ -163,12 +164,10 @@ position = Vector2(927, 408)
 rotation = 0.00609007
 scale = Vector2(9.70242, 9.70242)
 target = NodePath("../../Quarto/Porta Quarto")
-
-[node name="Item" parent="Banheiro" instance=ExtResource("3_64sqi")]
-position = Vector2(1150, 25)
-rotation = 1.32097
-scale = Vector2(0.633729, 0.633729)
-arte = ExtResource("17_gyvuj")
+dialogo = true
+single_use_dialogue = true
+texto = "Tenho uma pequena impressão que me fudi!!!!"
+timing = 0.4
 
 [node name="chave de fenda 2" parent="Banheiro" instance=ExtResource("3_64sqi")]
 position = Vector2(1164, 544)
